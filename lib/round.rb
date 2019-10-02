@@ -1,4 +1,4 @@
-require "./turn"
+require "../lib/turn"
 
 class Round
   attr_reader :deck, :turns, :current_card, :number_correct
@@ -32,6 +32,14 @@ class Round
     correct
   end
 
+  def percent_correct
+    calculate_percentage(@number_correct, @turns.length)
+  end
     
+  def calculate_percentage(correct, total)
+    result = (correct.to_f / total.to_f) * 100
+    result.floor(1)
+  end
+
 
 end
