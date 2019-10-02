@@ -20,6 +20,17 @@ class Round
     new_turn
   end
 
+  def number_correct_by_category(category)
+    correct = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        if turn.guess == turn.card.answer
+          correct += 1
+        end
+      end
+    end
+    correct
+  end
 
     
 
