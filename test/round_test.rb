@@ -39,4 +39,11 @@ class RoundTest < Minitest::Test
     assert_equal 66.6, @round.percent_correct
   end
 
+  def test_it_returns_the_correct_percentage_by_category
+    @round.take_turn("Volta")
+    assert_equal 0, @round.percent_correct_by_category(:Geography)
+    @round.take_turn("Tokyo")
+    @round.take_turn("North north west")
+    assert_equal 50.0, @round.percent_correct_by_category(:STEM)
+  end
 end
