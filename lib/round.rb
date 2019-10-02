@@ -1,9 +1,7 @@
 require "./turn"
 
 class Round
-  attr_accessor :deck :turns :current_card, :number_correct
-  # attr_read <-- read
-  # attr_write
+  attr_reader :deck, :turns, :current_card, :number_correct
 
   def initialize(deck)
     @deck = deck
